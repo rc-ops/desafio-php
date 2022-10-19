@@ -5,7 +5,8 @@ include 'inc/header.php';
 <h1>Faça o seu pedido!</h1>
 <form action="handler.php" method="POST">
     <br>
-    <script src="js/selections.js"></script>
+    <script type="text/javascript" src="js/selections.js"></script>
+    <link rel="stylesheet" href="css/formulario.css">
     <div>
         <h3>
             <p><label for="tamanho">Tamanho da pizza</label></p>
@@ -29,6 +30,8 @@ include 'inc/header.php';
                 <option value="frango">Frango</option>
                 <option value="calabresa">Calabresa</option>
                 <option value="chocolate">Chocolate</option>
+                <option value="catupiry">Catupiry</option>
+                <option value="romeu-julieta">Romeu e Julieta</option>
             </select>
         </div>
 
@@ -39,6 +42,8 @@ include 'inc/header.php';
                 <option value="frango">Frango</option>
                 <option value="calabresa">Calabresa</option>
                 <option value="chocolate">Chocolate</option>
+                <option value="catupiry">Catupiry</option>
+                <option value="romeu-julieta">Romeu e Julieta</option>
             </select>
         </div>
 
@@ -49,6 +54,37 @@ include 'inc/header.php';
                 <option value="frango">Frango</option>
                 <option value="calabresa">Calabresa</option>
                 <option value="chocolate">Chocolate</option>
+                <option value="catupiry">Catupiry</option>
+                <option value="romeu-julieta">Romeu e Julieta</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <script>
+            function showHideCrustFlavor() {
+                let checkbox = document.getElementById('borda-check');
+                let div = document.getElementById('opcoes-recheio-borda');
+                if (checkbox.checked) {
+                    div.style.display = '';
+                } else {
+                    div.style.display = 'none';
+                    emptySelection('recheio-borda');
+                }
+            }
+        </script>
+
+        <h3><label for="borda">Borda da pizza</label></h3>
+        <input type="checkbox" name="opcao-borda" id="borda-check" onchange="showHideCrustFlavor()">
+        <label for="borda">Borda recheada</label>
+
+        <div id="opcoes-recheio-borda" style="display: none">
+            <select name="recheio-da-borda" id="recheio-borda">
+                <option value="-">-</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="catupiry">Catupiry</option>
+                <option value="romeu-julieta">Romeu e Julieta</option>
+                <option value="frango">Frango</option>
             </select>
         </div>
     </div>
@@ -88,7 +124,7 @@ include 'inc/header.php';
         <input type="text" name="nome" placeholder="Nome Completo">
         <br>
         <label for="telefone">Telefone</label>
-        <input type="tel" name="telefone" placeholder="(00)91234-5678">
+        <input type="tel" name="telefone" placeholder="(00) 912345678">
         <br>
         <label for="rua">Rua</label>
         <input type="text" name="rua" placeholder="Rua dos Anjos">

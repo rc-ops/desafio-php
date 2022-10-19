@@ -10,7 +10,7 @@ function hideShowFlavors() {
         document.getElementById('sabores2').style.display = 'none';
         emptySelection('sabor2')
         document.getElementById('sabores3').style.display = 'none';
-        emptySelection('sabor3')
+        emptySelection('sabor3');
     }
 }
 
