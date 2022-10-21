@@ -1,5 +1,6 @@
 <?php
 require 'Calculadora.php';
+
 class Pedido
 {
     private $tamanho;
@@ -44,11 +45,13 @@ class Pedido
         ];
         $this->setPreco();
         $this->comissao = $this->calculoComissao();
+        
     }
 
-    public function calculoComissao()
+    private function calculoComissao()
     {
-        return 0.03 * $this->preco;
+        $calculadora = new Calculadora();
+        return $calculadora->calculoComissao($this->preco);
     }
 
     public function getPreco()
@@ -60,45 +63,6 @@ class Pedido
     {
         $calculadora = new Calculadora();
         $precoTotal = $calculadora->calculoPedido($this->sabores, $this->borda, $this->bebida);
-
-//        foreach ($this->sabores as $k => $v) {
-//            $sabor = $v;
-//            switch ($sabor) {
-//                case "calabresa":
-//                    $precoTotal += 5;
-//                    break;
-//                case "frango":
-//                    $precoTotal += 12;
-//                    break;
-//                case "chocolate":
-//                    $precoTotal += 15;
-//                    break;
-//                case "catupiry":
-//                    $precoTotal += 10;
-//                    break;
-//                case "romeu-julieta":
-//                    $precoTotal += 10;
-//                    break;
-//            }
-//        }
-//
-//        switch ($this->borda) {
-//            case "frango":
-//                $precoTotal += 8;
-//                break;
-//            case "chocolate":
-//                $precoTotal += 10;
-//                break;
-//            case "catupiry":
-//                $precoTotal += 8;
-//                break;
-//            case "romeu-julieta":
-//                $precoTotal += 12;
-//                break;
-//        }
-
-
-
         $this->preco = $precoTotal;
     }
 
@@ -115,35 +79,5 @@ class Pedido
     public function getGarcom()
     {
         return $this->garcom;
-    }
-
-
-}
-
-class Preco
-{
-    public $preco_pizzas = [
-        'calabresa' => 5,
-        'frango' => 12,
-        'chocolate' => 15,
-        'catupiry' => 10,
-        'romeu-julieta' => 10
-    ];
-
-    public $preco_bordas = [
-        'frango' => 8,
-        'chocolate' => 10,
-        'catupiry' => 8,
-        'romeu-julieta' => 12
-    ];
-
-    public function getPrecoPizzas(): array
-    {
-        return $this->preco_pizzas;
-    }
-
-    public function setPrecoPizzas(array $preco_pizzas): void
-    {
-        $this->preco_pizzas = $preco_pizzas;
     }
 }

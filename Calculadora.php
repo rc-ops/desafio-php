@@ -61,8 +61,8 @@ class Calculadora
         return $valor;
     }
 
-    private function calculoComissao($preco)
+    public function calculoComissao($preco)
     {
-        return 0.03 * $preco;
+        return number_format(0.03 * $preco, 2);
     }
 }
