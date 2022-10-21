@@ -1,18 +1,33 @@
-.rodape{
-    position:fixed;
-    left:10px;
-    bottom:5px;
-    right:10px;
+.rodape {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: rgb(15, 148, 148);
     color: white;
     text-align: center;
-    border-width: 10px;
+    left: 0;
+    height: 20px
 }
 
-h1, h3{
-    color:rgb(216, 17, 50);
+h1, h3 {
+    color: rgb(216, 17, 50);
 }
 
-body{
+body {
     background-color: rgba(85, 76, 76, 0.452);
+    margin: 0 0 100px;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+label, p{
+    padding: 3px;
+}
+
+form{
+    padding-left: 30%;
+    
 }
