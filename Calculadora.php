@@ -40,7 +40,8 @@ class Calculadora
                 $precoTotal += 12;
                 break;
         }
-        $precoTotal += $this->calculoComissao($precoTotal + $this->calculoBebida($bebida));
+
+        $precoTotal += $this->calculoBebida($bebida) + $this->calculoComissao($precoTotal);
         return $precoTotal;
     }
 
